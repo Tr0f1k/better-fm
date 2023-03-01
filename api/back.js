@@ -6,7 +6,7 @@ const { Pool } = require("pg");
 const pool = new Pool({
   user: "postgres",
   host: "localhost",
-  database: "postgres",
+  database: "fm",
   password: "root",
   port: 5432
 });
@@ -17,25 +17,26 @@ app.use(function(req, res, next) {
     next();
   });
 
-// GET method that gets sums for debits and credits based on category of transaction
-app.get("/api/sums", async (req, res) => {
-  try {
-    const client = await pool.connect();
-    const result = await client.query("SELECT transaction_category AS category, SUM(debit_amount) AS debit, SUM(credit_amount) AS credit FROM money GROUP BY transaction_category;");
-    const data = result.rows;
-    client.release();
-    res.json(data);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
+  app.get("/api/seasonChallenges", async (req, res) => {
+    try {
+      const n = req.query.n || 1; // default to 10 rows if n is not specified
+      const dm = req.query.dm || 1;
+      const dl = req.query.dl || 4;
+      const client = await pool.connect();
+      const result = await client.query(`SELECT * FROM seasonChallenges WHERE difficulty >= ${dm} AND difficulty <= ${dl} ORDER BY RANDOM() LIMIT ${n};`);
+      const data = result.rows;
+      client.release();
+      res.json(data);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });  
 
-// GET method that gets all data from database
 app.get("/api/data", async (req, res) => {
   try {
     const client = await pool.connect();
-    const result = await client.query("SELECT * FROM money ORDER BY transaction_id");
+    const result = await client.query("SELECT * FROM seasonChallenges;");
     const data = result.rows;
     client.release();
     res.json(data);

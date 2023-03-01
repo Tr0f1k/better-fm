@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles/App.css";
+import React from "react";
+import SeasonChallenges from "./SeasonChallenges";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className={'top'}>
+        <h1>Better FM!</h1>
+        <h2>Getting bored while playing FM? Try spicing it up with some interesting challenges!</h2>
+      </div>
+      <SeasonChallenges />
     </div>
   );
 }
 
 export default App;
+
