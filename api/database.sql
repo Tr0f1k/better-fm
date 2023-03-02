@@ -21,7 +21,8 @@ CREATE TABLE matchChallenges (
 
 INSERT INTO matchChallenges (name, description, difficulty, section, imgurl, difurl) VALUES
     ('Alphabet', 'Sort your players by alphabet and put first 11 players in the squad', 3, 'Squad', './images/matchChallenges/alphabet.jpg', './images/diff/3star.png'),
-    ('Smart Decision', 'Substitute your player as soon as he scores until you run out of subs', 4, 'Management', './images/matchChallenges/smart.jpg', './images/diff/4star.png')
+    ('Smart Decision', 'Substitute your player as soon as he scores until you run out of subs', 4, 'Management', './images/matchChallenges/smart.jpg', './images/diff/4star.png'),
+    ('Future Star', 'Put the least skilled player from your academy in your starting 11 and play him for at least 45 minutes', 4, 'Squad', './images/matchChallenges/future.jpg', './images/diff/4star.png')
 
 INSERT INTO seasonChallenges (name, description, difficulty, section, imgurl, difurl) VALUES
     ('Knives Out', 'Sign Quincy Promes and use him in at least in 50% of matches', 1, 'Transfers', './images/seasonChallenges/knifesout.jpg', './images/diff/1star.png'),

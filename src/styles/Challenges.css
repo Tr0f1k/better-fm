@@ -1,5 +1,9 @@
-.seasonComp {
+.comp {
     background-color: azure;
+}
+
+.title {
+    text-align: center;
 }
 
 .selectBox {
