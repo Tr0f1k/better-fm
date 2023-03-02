@@ -19,11 +19,27 @@ app.use(function(req, res, next) {
 
   app.get("/api/seasonChallenges", async (req, res) => {
     try {
-      const n = req.query.n || 1; // default to 10 rows if n is not specified
+      const n = req.query.n || 1;
       const dm = req.query.dm || 1;
       const dl = req.query.dl || 4;
       const client = await pool.connect();
       const result = await client.query(`SELECT * FROM seasonChallenges WHERE difficulty >= ${dm} AND difficulty <= ${dl} ORDER BY RANDOM() LIMIT ${n};`);
+      const data = result.rows;
+      client.release();
+      res.json(data);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
+
+  app.get("/api/matchChallenges", async (req, res) => {
+    try {
+      const n = req.query.n || 1;
+      const dm = req.query.dm || 1;
+      const dl = req.query.dl || 4;
+      const client = await pool.connect();
+      const result = await client.query(`SELECT * FROM matchChallenges WHERE difficulty >= ${dm} AND difficulty <= ${dl} ORDER BY RANDOM() LIMIT ${n};`);
       const data = result.rows;
       client.release();
       res.json(data);

@@ -2,11 +2,11 @@
 
 ## Description:
 
-This project is created to provide Football Manager players with random challenges for the game.
+This project is created to provide Football Manager players with random challenges for whole season or for one match.
 
 ## Features (so far)
 
-1) Randomize challenges
+1) Randomize challenges for a whole season or for a single match
 2) Select minimum and maximum difficulties
 3) Select the amount of challenges
 
@@ -14,4 +14,3 @@ This project is created to provide Football Manager players with random challeng
 
 1) Filter challenges by type
 2) Randomize challenges by total difficulty
-3) Randomize challenges for a single game

@@ -1,8 +1,8 @@
-import "./styles/SeasonChallenges.css";
+import "./styles/MatchChallenges.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function SeasonChallenges() {
+function MatchChallenges() {
   const [selectedN, setSelectedN] = useState(0);
   const [selectedDm, setSelectedDm] = useState(1);
   const [selectedDl, setSelectedDl] = useState(4);
@@ -22,7 +22,7 @@ function SeasonChallenges() {
 
   const fetchData = () => {
     axios
-      .get("http://localhost:4000/api/seasonChallenges", {
+      .get("http://localhost:4000/api/matchChallenges", {
         params: { n: selectedN, dm: selectedDm, dl: selectedDl },
       })
       .then((response) => {
@@ -38,7 +38,7 @@ function SeasonChallenges() {
   };
 
   return (
-    <div className="seasonComp">
+    <div className="matchComp">
       <div className={'selectBox'}>
         <div className={'selectItem'}>
           <label htmlFor="selectN">Select number of challenges:</label>
@@ -85,5 +85,5 @@ function SeasonChallenges() {
   );
 }
 
-export default SeasonChallenges;
+export default MatchChallenges;
 
