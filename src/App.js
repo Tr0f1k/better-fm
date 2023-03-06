@@ -28,7 +28,7 @@ function App() {
   return (
     <div>
       <AppBar position="sticky">
-        <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
+        <Toolbar style={{ display: "flex", justifyContent: "space-between", background: "#caffb9ff", color: "#66635bff" }}>
           <Typography variant="h6">Better FM</Typography>
           <Button color="inherit" onClick={handleSeasonChallengesClick}>
             Season Challenges
@@ -44,19 +44,18 @@ function App() {
           </Button>
         </Toolbar>
       </AppBar>
-      <Paper style={{color: "gray"}}>
+      <Paper style={{color: "#648767ff", background: "#451f55ff"}}>
         <div className="top">
           <h1>Better FM!</h1>
           <h2>Getting bored while playing FM? Try spicing it up with some interesting challenges!</h2>
-          <br></br>
         </div>
       </Paper>
       {selectedComponent === "SeasonChallenges" && <SeasonChallenges />}
       {selectedComponent === "MatchChallenges" && <MatchChallenges />}
       {selectedComponent === "Scenarios" && <Scenarios />}
       {selectedComponent === "About" && <About />}
-      <AppBar position="static" color="primary">
-      <Toolbar>
+      <AppBar position="static">
+      <Toolbar style={{ background: "#caffb9ff", color: "#66635bff" }}>
         <Typography variant="body1" style={{ flexGrow: 1 }}>
         Better FM
         </Typography>

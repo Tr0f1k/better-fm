@@ -65,6 +65,8 @@ function SeasonChallenges() {
 
   return (
     <div className="comp">
+      <div className="somekindofbox">
+      <div className="somekindofitem">
       <div className="title"><h1>Season Challenges</h1></div>
       <h2>Instructions:</h2>
     <ol>
@@ -109,18 +111,24 @@ function SeasonChallenges() {
       <div className={"randomButton"}>
       <Button onClick={handleClick}>Random!!!</Button>
     </div>
+    </div>
+    </div>
     <br></br>
-  <div className={"challengeBox"}>
+    {clicked && (
+  <div className="overlay">
+    <Button onClick={() => setClicked(false)}>Close</Button>
+    <div className={"challengeBox"}>
     {data.map((row, index) => (
       <Card
         key={row.id}
         className={clicked ? "card-animation" : ""}
+        style={{ background: "#ffd2fcff" }}
       >
         <CardContent>
           <CardMedia
             component="img"
             className="challengeImages"
-            style={{ maxWidth: "50%", margin: "auto" }}
+            style={{ maxWidth: "50%", margin: "auto", borderRadius: "100%" }}
             image={require(`${row.imgurl}`)}
           />
           <Typography
@@ -155,13 +163,14 @@ function SeasonChallenges() {
       </Card>
   ))}
 </div>
-    <br></br>
-  <Accordion>
+  </div>
+)}
+  <Accordion style={{ background: "#ffd2fcff" }}>
   <AccordionSummary expandIcon={<ExpandMoreIcon />}>
       <Typography variant="h6">Previous Challenges:</Typography>
     </AccordionSummary>
     {previousData.map((set, index) => (
-  <Accordion key={index}>
+  <Accordion key={index} style={{ background: "#ffd2fcff" }}>
     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
       <Typography variant="h6">Challenge Set #{index + 1}</Typography>
     </AccordionSummary>

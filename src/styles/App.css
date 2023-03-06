@@ -1,9 +1,12 @@
 body {
-  background-color: aqua;
+  /*background-color: aqua;*/
+  background-color: #451f55ff;
+  color: #66635bff;
 }
 
 .top {
   text-align: center;
+  color: #66635bff;
 }
 
 .sticky-nav {
@@ -12,3 +15,9 @@ body {
   background-color: white;
   z-index: 1;
 }
+
+/*$mimi-pink: #ffd2fcff;
+$russian-violet: #451f55ff;
+$tea-green: #caffb9ff;
+$reseda-green: #648767ff;
+$dim-gray: #66635bff;*/

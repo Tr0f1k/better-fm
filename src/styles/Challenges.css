@@ -1,5 +1,15 @@
-.comp {
-    background-color: azure;
+
+
+.somekindofbox {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.somekindofitem {
+    width: 50%;
+    background-color: #ffd2fcff;
+    border-radius: 20%;
 }
 
 .title {
@@ -12,7 +22,7 @@
 }
 
 .selectItem {
-    color: blue;
+    color: #451f55ff;
 }
 
 .randomButton {
@@ -22,6 +32,8 @@
 .challengeBox {
     display: flex;
     justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
 }
 
 .challengeItem {
@@ -43,10 +55,21 @@
     justify-content: center;
 }
 
-.card-animation {
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+    z-index: 9999; /* set the overlay above the rest of the content */
+  }
+  
+  .card-animation {
     width: 20%;
     animation: card-animation 1s ease-in-out forwards;
     opacity: 0;
+    z-index: 10000;
   }
   
   @keyframes card-animation {
