@@ -1,6 +1,9 @@
 import "./styles/Challenges.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import { Typography, CardMedia } from "@material-ui/core";
 
 function MatchChallenges() {
   const [selectedN, setSelectedN] = useState(0);
@@ -10,18 +13,22 @@ function MatchChallenges() {
   const [previousData, setPreviousData] = useState([]);
   const [challengeSetNum, setChallengeSetNum] = useState(1);
 
+  //Handle selecting the amount of challenges
   const handleSelectN = (event) => {
     setSelectedN(event.target.value);
   };
 
+  //Handle selecting minimal difficulty of challenges
   const handleSelectDm = (event) => {
     setSelectedDm(event.target.value);
   };
 
+  //Handle selecting maximal difficulty of challenges
   const handleSelectDl = (event) => {
     setSelectedDl(event.target.value);
   };
 
+  //Fetching data from API
   const fetchData = () => {
     axios
       .get("http://localhost:4000/api/matchChallenges", {
@@ -41,6 +48,7 @@ function MatchChallenges() {
       });
   };
 
+  //Handle clicking "Random" button
   const handleClick = () => {
     fetchData();
   };
@@ -88,12 +96,29 @@ function MatchChallenges() {
     <br></br>
     <div className={"challengeBox"}>
       {data.map((row) => (
-        <div className={"challengeItem"} key={row.id}>
-          <img src={require(`${row.imgurl}`)} className={"challengeImages"} alt={`Challenge ${row.id}`}/>
-          <h2>{row.name}</h2>
-          <h3>{row.description}</h3>
-          <h4>Difficulty: <img src={require(`${row.difurl}`)} className="difficultyImages" alt={`Difficulty ${row.difficulty}`}/></h4>
-        </div>
+        <Card key={row.id}>
+          <CardContent>
+          <CardMedia
+            component="img"
+            className="challengeImages"
+            style={{ maxWidth: "50%", margin: "auto" }}
+            image={require(`${row.imgurl}`)}
+          />
+            <Typography gutterBottom variant="h5" component="h2" align="center">
+              {row.name}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p" align="center">
+              {row.description}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p" align="center">
+            <CardMedia
+            component="img"
+            style={{ maxWidth: "50%", margin: "auto" }}
+            image={require(`${row.difurl}`)}
+          />
+            </Typography>
+          </CardContent>
+        </Card>
       ))}
     </div>
     <br></br>
@@ -116,4 +141,6 @@ function MatchChallenges() {
 }
 
 export default MatchChallenges;
+
+
 

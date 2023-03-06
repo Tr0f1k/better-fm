@@ -1,0 +1,21 @@
+.aboutBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    background-color: cyan;
+}
+
+.aboutItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    background-color: aquamarine;
+  }
+  
+.aboutImage {
+    width: 70%;
+    border-radius: 100%;
+}

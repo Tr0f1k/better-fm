@@ -1,0 +1,22 @@
+.scenariosBox {
+    background-color: beige;
+}
+
+.scenariosItem {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.scenariosImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+.difficultyImages {
+    width: 20%;
+    height: 20%;
+}

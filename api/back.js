@@ -49,7 +49,20 @@ app.use(function(req, res, next) {
     }
   });  
 
-app.get("/api/data", async (req, res) => {
+app.get("/api/scenarios", async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query("SELECT * FROM scenarios;");
+    const data = result.rows;
+    client.release();
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/api/seasonDatabase", async (req, res) => {
   try {
     const client = await pool.connect();
     const result = await client.query("SELECT * FROM seasonChallenges;");

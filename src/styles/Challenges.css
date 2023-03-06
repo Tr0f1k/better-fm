@@ -25,21 +25,37 @@
 }
 
 .challengeItem {
-    width: 33%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    width: 33%;
+    height: 33%;
 }
 
 .challengeImages {
-    width: 30%;
-    height: 30%;
+    width: 100%;
+    height: 100%;
 }
 
-.challengeImages {
-    width: 60%;
-    height: 60%;
+.difficulty {
+    width: 20%;
+    display: flex;
+    justify-content: center;
 }
 
-.difficultyImages {
-    width: 25%;
-    height: 25%;
-}
+.card-animation {
+    width: 20%;
+    animation: card-animation 1s ease-in-out forwards;
+    opacity: 0;
+  }
+  
+  @keyframes card-animation {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
